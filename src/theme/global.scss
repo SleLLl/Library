@@ -1,0 +1,36 @@
+@import "src/theme/variables";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+}
+body {
+  height: 100vh;
+}
+#root {
+  height: 100%;
+}
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 105px;
+  width: 100%;
+  @media screen and (max-width: $md) {
+    padding: 0 40px;
+  }
+  @media screen and (max-width: $sm) {
+    padding: 0 16px;
+  }
+}
+.row {
+  display: flex;
+}
+.error {
+  color: $error;
+  margin: 5px;
+}

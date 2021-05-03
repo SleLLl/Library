@@ -1,0 +1,23 @@
+@import "src/theme/variables";
+
+.secondary-button {
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 8px;
+  background: $placeholder-text-color;
+  color: $general-white;
+  padding: 18px 62px;
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+  @media screen and (max-width: $sm) {
+    padding: 18px 30px;
+  }
+  @media screen and (max-width: $xs) {
+    font-size: 14px;
+    padding: 12px 15px;
+  }
+  &:focus {
+    outline: none;
+  }
+}

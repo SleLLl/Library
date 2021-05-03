@@ -1,0 +1,8 @@
+@import  'src/theme/variables';
+
+.book-title {
+  font-weight: bold;
+  font-size: 20px;
+  color: $primary-text-color;
+  margin-bottom: 20px;
+}

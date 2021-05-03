@@ -1,0 +1,65 @@
+@import "src/theme/variables";
+
+.footer {
+  background-color: $footer-bck;
+  padding: 40px 0;
+
+  margin-top: auto;
+  width: 100%;
+  &__column {
+    &-row {
+      width: 60%;
+      @media screen and (max-width: $xs) {
+        width: 100%;
+      }
+    }
+  }
+  &__row {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @media screen and (max-width: $xs) {
+      justify-content: center;
+    }
+    &-ul {
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(auto-fill, 185px);
+      grid-gap: 24px;
+      @media screen and (max-width: $xs) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+  &__img {
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    &:first-of-type {
+      margin-right: 16px;
+    }
+  }
+  &__ul-wrapper {
+    ul {
+      list-style: none;
+    }
+    a {
+      font-weight: normal;
+      font-size: 16px;
+      color: $primary-text-color;
+      margin-bottom: 8px;
+    }
+    @media screen and (max-width: $xs) {
+      text-align: center;
+    }
+  }
+  &__first-title {
+    font-weight: bold;
+    font-size: 18px;
+    color: $primary-text-color;
+    margin-bottom: 20px;
+    a {
+      font-weight: bold;
+      font-size: 18px;
+    }
+  }
+}

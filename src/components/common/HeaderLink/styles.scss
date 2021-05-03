@@ -1,0 +1,15 @@
+@import "src/theme/variables";
+
+.header__link {
+  a {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    color: $primary-text-color;
+  }
+  &_active {
+    a {
+    color: $primary-button-color;
+    }
+  }
+}

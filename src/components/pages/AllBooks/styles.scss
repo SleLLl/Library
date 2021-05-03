@@ -1,0 +1,15 @@
+@import "src/theme/variables";
+
+.all-book {
+  &__grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 256px);
+    grid-gap: 44px;
+    margin-bottom: 36px;
+  }
+  &__btn-blc {
+    text-align: center;
+    margin-bottom: 66px;
+  }
+}

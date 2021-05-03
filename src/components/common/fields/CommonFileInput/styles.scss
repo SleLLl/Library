@@ -1,0 +1,15 @@
+@import "src/theme/variables";
+
+.common-file-input {
+
+  &__hide {
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  &__error {
+    padding: 10px;
+    color: $error;
+  }
+}
