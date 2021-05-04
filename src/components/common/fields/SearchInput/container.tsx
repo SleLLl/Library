@@ -16,7 +16,6 @@ const SearchInputContainer = (): JSX.Element => {
   const result = useMemo(() => {
     return searchValue === '' ? [] : searchInBooks(searchValue);
   }, [searchValue]);
-  console.log(result);
 
   const clickMore = () => {
     if (location.pathname === ALL_BOOKS_APP_ENDPOINT) {

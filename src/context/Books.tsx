@@ -28,18 +28,25 @@ const BooksContextProvider: FC = (props): JSX.Element => {
   const [myBooks, setMyBooks] = useLocalStorage<Book[]>(MY_BOOKS_KEY, []);
   const [lastChange, setLastChange] = useLocalStorage<Date>(LAST_CHANGE_KEY, new Date());
 
-  const { data } = useQuery('books', getBooks);
+  const dataBook = useQuery('books', getBooks, {
+    enabled: false,
+    refetchOnWindowFocus: false,
+    onSettled: (data) => {
+      if (!books.length && data?.data) {
+        setBooks(data.data);
+      }
+      if (!books.length && data?.data && checkChange(lastChange, 1)) {
+        setLastChange(new Date());
+        setBooks(data.data);
+        setBooks([]);
+        setMyBooks([]);
+      }
+    },
+  });
+
   useEffect(() => {
-    if (!books.length && data?.data) {
-      setBooks(data.data);
-    }
-    if (!books.length && data?.data && checkChange(lastChange, 1)) {
-      setLastChange(new Date());
-      setBooks(data.data);
-      setBooks([]);
-      setMyBooks([]);
-    }
-  }, [data?.data]);
+    dataBook.refetch();
+  }, []);
 
   const addInMyLibrary = (id: string) => {
     const book = books.find((book) => book.id === id);
