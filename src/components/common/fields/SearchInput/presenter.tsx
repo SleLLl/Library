@@ -33,10 +33,10 @@ const SearchInputPresenter = (props: SearchInputPresenterProps): JSX.Element => 
             onChange={onChangeValue}
           />
         </label>
-        {value !== '' && result?.length !== 0 && (
+        {value !== '' && result.length !== 0 && (
           <div className="search__result">
             <ul>
-              {result?.slice(0, 5).map((book) => (
+              {result.slice(0, 5).map((book) => (
                 <li key={book.id} className="search__result-li">
                   <button onClick={clickLink(book.id)}>
                     <img src={book.imageUrl ?? undefined} alt={book.name} />
@@ -47,7 +47,7 @@ const SearchInputPresenter = (props: SearchInputPresenterProps): JSX.Element => 
             </ul>
             {result.length > 5 ? (
               <li key="more" className="search__result-more">
-                <button onClick={clickMore}>{`Показать все (${result?.length})`}</button>
+                <button onClick={clickMore}>{`Показать все (${result.length})`}</button>
               </li>
             ) : null}
           </div>

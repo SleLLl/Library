@@ -22,8 +22,8 @@ const MenuProfileContainer = (): JSX.Element => {
     document.removeEventListener('click', handleDocumentClick);
   };
 
-  const handleDocumentClick = (e: any): void => {
-    if (wrapper.current && e.target && !wrapper.current.contains(e.target)) {
+  const handleDocumentClick = (e: MouseEvent): void => {
+    if (wrapper.current && e.target && !wrapper.current.contains(e.target as Node)) {
       onClickOutside();
     }
   };
