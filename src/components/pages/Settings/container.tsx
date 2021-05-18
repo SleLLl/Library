@@ -33,7 +33,7 @@ const SettingsContainer = (): JSX.Element => {
     delete userInfo.file;
     delete userInfo.password;
     delete userInfo.newPassword;
-    console.log(userInfo);
+
     if (userInfo.userName === '') {
       delete userInfo.userName;
     }

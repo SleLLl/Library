@@ -5,7 +5,9 @@ import { Redirect, Route } from 'react-router-dom';
 import { AuthContext } from '../context/Auth';
 
 interface PublicRouteProps {
-  component?: React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any>;
+  component?:
+    | React.ComponentType<RouteComponentProps<never>>
+    | React.ComponentType<unknown>;
   path: string;
   exact: boolean;
 }

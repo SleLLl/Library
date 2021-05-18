@@ -23,7 +23,7 @@ export const BooksContext = createContext<BooksContext>({
   searchInBooks: () => [],
 });
 
-const BooksContextProvider: FC = (props): JSX.Element => {
+const BooksContextProvider: FC = (props) => {
   const [books, setBooks] = useLocalStorage<Book[]>(BOOKS_KEY, []);
   const [myBooks, setMyBooks] = useLocalStorage<Book[]>(MY_BOOKS_KEY, []);
   const [lastChange, setLastChange] = useLocalStorage<Date>(LAST_CHANGE_KEY, new Date());
