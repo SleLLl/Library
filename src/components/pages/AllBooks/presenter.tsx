@@ -20,19 +20,21 @@ const AllBooksPresenter = (props: AllBooksPresenterProps): JSX.Element | null =>
   const { books, count, showMore, disabled, addInMyLibrary } = props;
   return (
     <AppLayout>
-      <BookTitle title="All books" />
-      <div className="all-book__grid">
-        {books.map((book, index) => {
-          if (index < count) {
-            return <CardBook key={book.id} {...book} addInMyLibrary={addInMyLibrary} />;
-          }
-          return null;
-        })}
-      </div>
-      <div className="all-book__btn-blc">
-        <PrimaryButton disabled={disabled} onClick={showMore}>
-          Show more
-        </PrimaryButton>
+      <div className="all-book">
+        <BookTitle title="All books" />
+        <div className="all-book__grid">
+          {books.map((book, index) => {
+            if (index < count) {
+              return <CardBook key={book.id} {...book} addInMyLibrary={addInMyLibrary} />;
+            }
+            return null;
+          })}
+        </div>
+        <div className="all-book__btn-blc">
+          <PrimaryButton disabled={disabled} onClick={showMore}>
+            Show more
+          </PrimaryButton>
+        </div>
       </div>
     </AppLayout>
   );
