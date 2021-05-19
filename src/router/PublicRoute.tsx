@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Redirect, Route } from 'react-router-dom';
 
+import Footer from '../components/Footer';
 import { AuthContext } from '../context/Auth';
 
 interface PublicRouteProps {
@@ -17,7 +18,10 @@ const PublicRoute = (props: PublicRouteProps): JSX.Element => {
   return user.auth ? (
     <Redirect to="/all-books" />
   ) : (
-    <Route exact={props.exact} path={props.path} component={props.component} />
+    <>
+      <Route exact={props.exact} path={props.path} component={props.component} />
+      <Footer />
+    </>
   );
 };
 

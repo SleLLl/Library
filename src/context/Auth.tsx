@@ -42,7 +42,7 @@ export const AuthContext = createContext<AuthContext>({
   changeSetting: () => null,
 });
 
-const AuthContextProvider: FC = (props): JSX.Element => {
+const AuthContextProvider: FC = (props) => {
   const [user, setUser] = useLocalStorage<User>(USER_KEY, {
     userName: '',
     birthdate: '',

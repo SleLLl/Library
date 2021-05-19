@@ -10,7 +10,12 @@ const AllBooksContainer = (): JSX.Element => {
 
   const showMore = (): void => {
     if (books.length > count) {
-      setCount((prevState) => prevState + 4);
+      setCount((prevState) => {
+        if (prevState + 4 >= books.length) {
+          setDisabled(true);
+        }
+        return prevState + 4;
+      });
     } else {
       setDisabled(true);
     }

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { AuthContext } from '../../../context/Auth';
@@ -10,39 +10,7 @@ const MenuProfileContainer = (): JSX.Element => {
   const { user, logOut } = useContext(AuthContext);
   const history = useHistory();
 
-  useEffect(() => {
-    show ? onShow() : onHide();
-  });
-
-  const addOutsideClickListener = () => {
-    document.addEventListener('click', handleDocumentClick);
-  };
-
-  const removeOutsideClickListener = () => {
-    document.removeEventListener('click', handleDocumentClick);
-  };
-
-  const handleDocumentClick = (e: MouseEvent): void => {
-    if (wrapper.current && e.target && !wrapper.current.contains(e.target as Node)) {
-      onClickOutside();
-    }
-  };
-
-  const onShow = (): void => {
-    addOutsideClickListener();
-  };
-
-  const onHide = (): void => {
-    removeOutsideClickListener();
-  };
-
-  const onClickOutside = (): void => {
-    setShow(false);
-  };
-
-  const showNav = (): void => {
-    setShow((prevState) => !prevState);
-  };
+  const showNav = (): void => setShow((prevState) => !prevState);
 
   const logOutUSer = (): void => {
     logOut();

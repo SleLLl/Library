@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
+import AppLayout from '../components/common/layout/AppLayout';
 import Spinner from '../components/common/spinner';
 import {
   ALL_BOOKS_APP_ENDPOINT,
@@ -22,10 +23,12 @@ const ApplicationRouter = (): JSX.Element => (
     <Suspense fallback={<Spinner />}>
       <Switch>
         <PublicRoute exact path={START_APP_ENDPOINT} component={Home} />
-        <PrivateRoute path={ALL_BOOKS_APP_ENDPOINT} component={AllBooks} />
-        <PrivateRoute path={SETTINGS_APP_ENDPOINT} component={Setting} />
-        <PrivateRoute path={YOUR_ORDERS_APP_ENDPOINT} component={Order} />
-        <PrivateRoute path={'/book/:id'} component={Book} />
+        <AppLayout>
+          <PrivateRoute path={ALL_BOOKS_APP_ENDPOINT} component={AllBooks} />
+          <PrivateRoute path={SETTINGS_APP_ENDPOINT} component={Setting} />
+          <PrivateRoute path={YOUR_ORDERS_APP_ENDPOINT} component={Order} />
+          <PrivateRoute path={'/book/:id'} component={Book} />
+        </AppLayout>
       </Switch>
     </Suspense>
   </Router>

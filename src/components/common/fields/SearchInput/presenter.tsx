@@ -36,20 +36,25 @@ const SearchInputPresenter = (props: SearchInputPresenterProps): JSX.Element => 
         {value !== '' && result.length !== 0 && (
           <div className="search__result">
             <ul>
-              {result.slice(0, 5).map((book) => (
-                <li key={book.id} className="search__result-li">
-                  <button onClick={clickLink(book.id)}>
-                    <img src={book.imageUrl ?? undefined} alt={book.name} />
-                    <span>{book.name}</span>
-                  </button>
-                </li>
-              ))}
+              {result.map((book, index) => {
+                if (index > 5) {
+                  return null;
+                }
+                return (
+                  <li key={book.id} className="search__result-li">
+                    <button onClick={clickLink(book.id)}>
+                      <img src={book.imageUrl ?? undefined} alt={book.name} />
+                      <span>{book.name}</span>
+                    </button>
+                  </li>
+                );
+              })}
             </ul>
-            {result.length > 5 ? (
+            {result.length > 5 && (
               <li key="more" className="search__result-more">
                 <button onClick={clickMore}>{`Показать все (${result.length})`}</button>
               </li>
-            ) : null}
+            )}
           </div>
         )}
       </div>

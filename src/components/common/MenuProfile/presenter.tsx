@@ -30,6 +30,12 @@ const MenuProfilePresenter = React.forwardRef<HTMLDivElement, MenuProfilePresent
           <img className={`${view && 'arrow_active'}`} src={arrow} alt="arrow" />
         </div>
         <div
+          role="button"
+          aria-hidden="true"
+          onClick={changeShow}
+          className={classNames(view && 'close-wrapper')}
+        />
+        <div
           ref={ref}
           className={classNames('menu-profile__wrapper', view && 'menu-profile_active')}>
           <p className="menu-profile__user-name">
