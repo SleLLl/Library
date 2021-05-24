@@ -33,13 +33,14 @@ const BooksContextProvider: FC = (props) => {
     refetchOnWindowFocus: false,
     onSettled: (data) => {
       if (!books.length && data?.data) {
+        if (checkChange(lastChange, 1)) {
+          setLastChange(new Date());
+          setBooks(data.data);
+          setBooks([]);
+          setMyBooks([]);
+          return;
+        }
         setBooks(data.data);
-      }
-      if (!books.length && data?.data && checkChange(lastChange, 1)) {
-        setLastChange(new Date());
-        setBooks(data.data);
-        setBooks([]);
-        setMyBooks([]);
       }
     },
   });
